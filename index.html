@@ -4,40 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Task Manager</title>
-    <!-- Link to external CSS file -->
-    <link href="styles.css" rel="stylesheet">
+    <!-- Link to External CSS -->
+    <link href="style.css" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <h1>Daily Task Manager</h1>
 
-<div class="container">
-    <h1>Daily Task Manager</h1>
-
-    <!-- Task List -->
-    <div id="taskList">
-        <!-- Example Task Item -->
-        <div class="task">
-            <span class="task-name">Complete Homework</span>
-            <span class="status completed">Completed</span>
-            <i class="fas fa-trash"></i> <!-- Delete Icon -->
+        <!-- Task List -->
+        <div id="taskList">
+            <!-- Example Task Items -->
+            <div class="task">
+                <span class="task-name">Complete Homework</span>
+                <span class="status completed">Completed</span>
+                <i class="fas fa-trash"></i> <!-- Delete Icon -->
+            </div>
+            <div class="task">
+                <span class="task-name">Go to the Gym</span>
+                <span class="status">Pending</span>
+                <i class="fas fa-trash"></i> <!-- Delete Icon -->
+            </div>
         </div>
-        <div class="task">
-            <span class="task-name">Go to the Gym</span>
-            <span class="status">Pending</span>
-            <i class="fas fa-trash"></i> <!-- Delete Icon -->
+
+        <!-- Add New Task -->
+        <div class="add-task">
+            <input type="text" id="newTask" placeholder="Enter a new task">
+            <button onclick="addTask()">Add Task</button>
         </div>
     </div>
 
-    <!-- Add New Task -->
-    <div class="add-task">
-        <input type="text" id="newTask" placeholder="Enter a new task">
-        <button onclick="addTask()">Add Task</button>
-    </div>
-</div>
-
-<!-- Link to external JavaScript file -->
-<script src="script.js"></script>
-
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
