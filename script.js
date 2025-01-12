@@ -12,10 +12,22 @@ function addTask() {
         taskName.classList.add("task-name");
         taskName.textContent = newTaskInput.value;
 
-        // Create task status
+        // Create task status (Pending by default)
         const status = document.createElement("span");
         status.classList.add("status");
         status.textContent = "Pending";
+
+        // Create 'Mark as Done' button
+        const markDoneButton = document.createElement("button");
+        markDoneButton.textContent = "Done";
+        markDoneButton.classList.add("done-btn");
+        markDoneButton.onclick = function () {
+            if (status.textContent === "Pending") {
+                status.textContent = "Completed";
+                status.classList.add("completed");
+                markDoneButton.disabled = true;
+            }
+        };
 
         // Create delete icon
         const deleteIcon = document.createElement("i");
@@ -27,6 +39,7 @@ function addTask() {
         // Append elements to the new task
         newTask.appendChild(taskName);
         newTask.appendChild(status);
+        newTask.appendChild(markDoneButton);
         newTask.appendChild(deleteIcon);
         taskList.appendChild(newTask);
 
