@@ -1,16 +1,83 @@
+/* Basic styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+}
+
+/* Label section in sidebar */
+#labels {
+    margin-top: 20px;
+}
+
+.label {
+    display: inline-block;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.label:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
 }
 
 h1 {
@@ -20,33 +87,97 @@ h1 {
 
 .task {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack the task info and options vertically */
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
 
-.task i {
-    color: #007bff;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.task-info {
+    display: flex;
+    justify-content: space-between; /* Space between task name and status */
+    align-items: center;
 }
 
-.task i:hover {
-    color: #ff5722;
-}
-
-.task .task-name {
+.task-name {
     font-size: 18px;
     color: #333;
 }
 
-.task .status {
+.status {
     color: #28a745;
 }
 
-.task .status.completed {
+.status.completed {
     color: #6c757d;
+}
+
+.task-options {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.task-options button,
+.task-options i {
+    cursor: pointer;
+    margin-right: 10px; /* Reduced spacing between options */
+    padding: 5px;
+}
+
+.task-options .edit-btn,
+.task-options .note-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.task-options .edit-btn:hover,
+.task-options .note-btn:hover {
+    background-color: #e0a800;
+}
+
+.task-options .done-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.task-options .done-btn:hover {
+    background-color: #218838;
+}
+
+.task-options .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.task-options .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Added icons */
+.task-options .edit-btn::before {
+    content: "\f044"; /* FontAwesome edit icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.task-options .note-btn::before {
+    content: "\f0c9"; /* FontAwesome sticky note icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.task-options .delete-btn::before {
+    content: "\f1f8"; /* FontAwesome trash icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
 }
 
 .add-task {
@@ -73,23 +204,4 @@ h1 {
 
 .add-task button:hover {
     background-color: #0056b3;
-}
-
-.done-btn {
-    padding: 5px 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.done-btn:hover {
-    background-color: #218838;
-}
-
-.done-btn:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
 }
