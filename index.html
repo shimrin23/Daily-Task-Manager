@@ -4,34 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Task Manager</title>
-    <!-- Link to External CSS -->
     <link href="style.css" rel="stylesheet">
-    <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Daily Task Manager</h1>
-
-        <!-- Task Count Display -->
-        <div id="taskCount">
-            <p>Total Tasks: <span id="totalTasks">0</span></p>
-            <p>Pending Tasks: <span id="pendingTasks">0</span></p>
-            <p>Completed Tasks: <span id="completedTasks">0</span></p>
+        <div class="sidebar">
+            <h2>Filters</h2>
+            <input type="text" id="search" placeholder="Search tasks..." onkeyup="searchTasks()">
+            <button onclick="filterTasks('today')">Today</button>
+            <button onclick="filterTasks('upcoming')">Upcoming</button>
+            <div id="labels">
+                <p><strong>Labels:</strong></p>
+                <span class="label">Work</span>
+                <span class="label">Personal</span>
+                <span class="label">Urgent</span>
+            </div>
         </div>
 
-        <!-- Task List -->
-        <div id="taskList">
-            <!-- Task items will be dynamically added here -->
-        </div>
+        <div class="main-content">
+            <h1>Daily Task Manager</h1>
 
-        <!-- Add New Task -->
-        <div class="add-task">
-            <input type="text" id="newTask" placeholder="Enter a new task">
-            <button onclick="addTask()">Add Task</button>
+            <div id="taskCount">
+                <p>Total Tasks: <span id="totalTasks">0</span></p>
+                <p>Pending Tasks: <span id="pendingTasks">0</span></p>
+                <p>Completed Tasks: <span id="completedTasks">0</span></p>
+            </div>
+
+            <div id="taskList"></div>
+
+            <div class="add-task">
+                <input type="text" id="newTask" placeholder="Enter a new task">
+                <button onclick="addTask()">Add Task</button>
+            </div>
         </div>
     </div>
-    <!-- Link to External JavaScript -->
+
     <script src="script.js"></script>
 </body>
 </html>
