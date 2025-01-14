@@ -22,10 +22,13 @@
         <div class="main-content">
             <h1>Daily Task Manager</h1>
 
-            <div id="taskCount">
-                <p>Total Tasks: <span id="totalTasks">0</span></p>
-                <p>Pending Tasks: <span id="pendingTasks">0</span></p>
-                <p>Completed Tasks: <span id="completedTasks">0</span></p>
+            <!-- Circular Task Progress -->
+            <div class="task-progress-container">
+                <svg class="task-progress-circle" width="150" height="150">
+                    <circle cx="75" cy="75" r="70" stroke="#ddd" stroke-width="12" fill="none" />
+                    <circle id="progressCircle" cx="75" cy="75" r="70" stroke="#28a745" stroke-width="12" fill="none" stroke-dasharray="439.82" stroke-dashoffset="439.82" />
+                </svg>
+                <p id="taskProgressText" class="task-progress-text">0/0 Tasks</p>
             </div>
 
             <div id="taskList"></div>
@@ -40,3 +43,14 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
