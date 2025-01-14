@@ -4,9 +4,14 @@ let completedTasks = 0;
 let tasks = [];
 
 function updateTaskCounts() {
-    document.getElementById("totalTasks").textContent = totalTasks;
-    document.getElementById("pendingTasks").textContent = pendingTasks;
-    document.getElementById("completedTasks").textContent = completedTasks;
+    const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+    const circle = document.getElementById("progressCircle");
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (progress / 100) * circumference;
+
+    circle.style.strokeDashoffset = offset;
+    document.getElementById("taskProgressText").textContent = `${completedTasks}/${totalTasks} Tasks`;
 }
 
 function addTask() {
@@ -14,7 +19,7 @@ function addTask() {
 
     if (newTaskInput.value.trim() !== "") {
         const newTask = {
-            name: newTaskInput.value,
+            name: newTaskInput.value.trim(),
             status: "Pending",
             dueDate: new Date(),
             label: ["Personal"], // Default label
@@ -22,12 +27,14 @@ function addTask() {
         };
 
         tasks.push(newTask);
-        renderTasks();
         totalTasks++;
         pendingTasks++;
-        updateTaskCounts();
 
+        // Clear the input field after adding the task
         newTaskInput.value = "";
+
+        updateTaskCounts();
+        renderTasks();
     }
 }
 
@@ -45,7 +52,7 @@ function renderTasks() {
         // Add task number, name, and status
         const taskInfo = document.createElement("span");
         taskInfo.classList.add("task-info-text");
-        taskInfo.textContent = `Task ${index + 1}: ${task.name} [${task.status}]`;
+        taskInfo.textContent = `Task ${index + 1}: ${task.name} [${task.status}] - Priority: ${task.priority}`;
 
         taskInfoDiv.appendChild(taskInfo);
 
@@ -72,7 +79,7 @@ function renderTasks() {
         editButton.classList.add("edit-btn");
         editButton.textContent = "Edit";
         editButton.onclick = function () {
-            const newName = prompt("Edit task:", task.name);
+            const newName = prompt("Edit task name:", task.name);
             if (newName) {
                 task.name = newName;
                 renderTasks();
@@ -84,49 +91,30 @@ function renderTasks() {
         noteButton.classList.add("note-btn");
         noteButton.textContent = "Note";
         noteButton.onclick = function () {
-            const note = prompt("Add a note:", "");
-            if (note) {
-                alert("Note added: " + note);
+            const newNote = prompt("Add a note for the task:");
+            if (newNote) {
+                task.note = newNote;
             }
         };
 
-        // Priority button
-        const priorityButton = document.createElement("button");
-        priorityButton.classList.add("priority-btn");
-        priorityButton.textContent = task.priority;  // Show current priority or default text
-        const priorityDropdown = document.createElement("div");
-        priorityDropdown.classList.add("priority-dropdown");
+        // Priority selector
+        const prioritySelect = document.createElement("select");
+        prioritySelect.classList.add("priority-select");
 
-        const lowOption = document.createElement("button");
-        lowOption.textContent = "Low";  // Change to Low
-        lowOption.onclick = function () {
-            task.priority = "Low";  // Update the task's priority to Low
-            priorityButton.textContent = "Low";  // Change the button text to Low
-            priorityDropdown.style.display = "none";  // Hide the dropdown
-        };
+        const priorityOptions = ["Priority", "Low", "Medium", "High"];
+        priorityOptions.forEach((priority) => {
+            const option = document.createElement("option");
+            option.value = priority;
+            option.textContent = priority;
+            if (task.priority === priority) {
+                option.selected = true;
+            }
+            prioritySelect.appendChild(option);
+        });
 
-        const mediumOption = document.createElement("button");
-        mediumOption.textContent = "Medium";  // Medium option remains the same
-        mediumOption.onclick = function () {
-            task.priority = "Medium";  // Update the task's priority to Medium
-            priorityButton.textContent = "Medium";  // Change the button text to Medium
-            priorityDropdown.style.display = "none";  // Hide the dropdown
-        };
-
-        const highOption = document.createElement("button");
-        highOption.textContent = "High";  // High option remains the same
-        highOption.onclick = function () {
-            task.priority = "High";  // Update the task's priority to High
-            priorityButton.textContent = "High";  // Change the button text to High
-            priorityDropdown.style.display = "none";  // Hide the dropdown
-        };
-
-        priorityDropdown.appendChild(lowOption);  // Append Low first
-        priorityDropdown.appendChild(mediumOption);  // Then Medium
-        priorityDropdown.appendChild(highOption);  // Then High
-
-        priorityButton.onclick = function () {
-            priorityDropdown.style.display = priorityDropdown.style.display === "none" ? "flex" : "none";
+        prioritySelect.onchange = function () {
+            task.priority = prioritySelect.value;
+            renderTasks();
         };
 
         // Delete button
@@ -138,7 +126,7 @@ function renderTasks() {
             totalTasks--;
             if (task.status === "Pending") {
                 pendingTasks--;
-            } else if (task.status === "Completed") {
+            } else {
                 completedTasks--;
             }
             updateTaskCounts();
@@ -148,17 +136,20 @@ function renderTasks() {
         taskOptionsDiv.appendChild(markDoneButton);
         taskOptionsDiv.appendChild(editButton);
         taskOptionsDiv.appendChild(noteButton);
+        taskOptionsDiv.appendChild(prioritySelect); // Added priority selector
         taskOptionsDiv.appendChild(deleteButton);
-        taskOptionsDiv.appendChild(priorityButton);
-        taskOptionsDiv.appendChild(priorityDropdown);  // Add priority dropdown
 
         taskDiv.appendChild(taskInfoDiv);
         taskDiv.appendChild(taskOptionsDiv);
+
+        // Add priority class for styling
+        taskDiv.classList.add(`priority-${task.priority.toLowerCase()}`);
+
         taskList.appendChild(taskDiv);
     });
 }
 
 function goHome() {
-    renderTasks();  // Show all tasks
-    updateTaskCounts();  // Update task counts (total, pending, completed)
+    renderTasks();
+    updateTaskCounts();
 }
