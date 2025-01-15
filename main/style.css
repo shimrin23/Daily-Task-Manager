@@ -1,0 +1,252 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #00bcd4, #00796b); /* Teal to Green gradient */
+    color: white;
+    padding: 30px;
+    border-right: 1px solid #ddd;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff; /* Light blue for buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Label section in sidebar */
+#labels, #priority {
+    margin-top: 20px;
+}
+
+.label {
+    display: inline-block;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.label:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #e0f2f1; /* Light Teal to match sidebar theme */
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Task progress circle styles */
+.task-progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-progress-circle {
+    transform: rotate(-90deg); /* Rotate the circle to start from top */
+}
+
+#progressCircle {
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* Adjusted to move text under the circle */
+.task-progress-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;  /* Added margin to create space below the circle */
+    color: #333;
+}
+
+/* Task list and options */
+.task {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.task:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a lifted effect */
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-name {
+    font-size: 18px;
+    color: #333;
+}
+
+.status {
+    color: #28a745;
+}
+
+.status.completed {
+    color: #6c757d;
+}
+
+.task-options {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+/* Task option buttons */
+.task-options button {
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.task-options .done-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.task-options .done-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.task-options .edit-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+}
+
+.task-options .edit-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.task-options .note-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+}
+
+.task-options .note-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.task-options .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.task-options .delete-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Add task input */
+.add-task {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.add-task input {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 75%;
+    margin-right: 10px;
+    transition: border 0.3s ease;
+}
+
+.add-task input:focus {
+    border-color: #0056b3;
+}
+
+.add-task button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-task button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Priority-based task styles */
+.priority-low {
+    background-color: #81c784; /* Lighter green for low priority */
+    color: white;
+}
+
+.priority-medium {
+    background-color: #ffeb3b; /* Soft yellow for medium priority */
+    color: black;
+}
+
+.priority-high {
+    background-color: #f44336; /* Soft red for high priority */
+    color: white;
+}
