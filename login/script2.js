@@ -1,7 +1,7 @@
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Sample username and password for demonstration
+    //  Sample username and password for demonstration
     const correctUsername = "user";
     const correctPassword = "pass";
 
