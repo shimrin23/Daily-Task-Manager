@@ -52,7 +52,8 @@ function renderTasks() {
         // Add task number, name, and status
         const taskInfo = document.createElement("span");
         taskInfo.classList.add("task-info-text");
-        taskInfo.textContent = `Task ${index + 1}: ${task.name} [${task.status}] - Priority: ${task.priority}`;
+        taskInfo.innerHTML = `Task ${index + 1}: <span style="font-weight: bold; font-size: 20px;">${task.name} `;
+
 
         taskInfoDiv.appendChild(taskInfo);
 
@@ -76,7 +77,7 @@ function renderTasks() {
 
         // Edit button
         const editButton = document.createElement("button");
-        editButton.classList.add("edit-btn");
+       editButton.classList.add("edit-btn");
         editButton.textContent = "Edit";
         editButton.onclick = function () {
             const newName = prompt("Edit task name:", task.name);
@@ -86,8 +87,8 @@ function renderTasks() {
             }
         };
 
-        // Note button
-        const noteButton = document.createElement("button");
+        // Note button 
+          const noteButton = document.createElement("button");
         noteButton.classList.add("note-btn");
         noteButton.textContent = "Note";
         noteButton.onclick = function () {
@@ -95,7 +96,7 @@ function renderTasks() {
             if (newNote) {
                 task.note = newNote;
             }
-        };
+        }; 
 
         // Priority selector
         const prioritySelect = document.createElement("select");
@@ -152,4 +153,18 @@ function renderTasks() {
 function goHome() {
     renderTasks();
     updateTaskCounts();
+}
+
+function goNotes() {
+    
+    window.location.href = "../notes/note.html";
+}
+
+function logout() {
+    
+    alert("Logging out...");
+    window.location.href = "../login/index2.html";  
+}
+function goCalendar() {
+    window.location.href = "../notes/calander.html"; // Adjust this URL to the location of your calendar page
 }
