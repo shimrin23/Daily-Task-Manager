@@ -3,7 +3,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
     // Sample username and password for demonstration
     const correctUsername = "user";
-    const correctPassword = "password123";
+    const correctPassword = "pass";
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
