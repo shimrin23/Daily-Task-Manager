@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Task Manager</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button onclick="goHome()">Home</button>
+            <div id="labels">
+                <p><strong>Priority:</strong></p>
+                <span class="label">Low</span>
+                <span class="label">Medium</span>
+                <span class="label">High</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1>Daily Task Manager</h1>
+
+            <!-- Circular Task Progress -->
+            <div class="task-progress-container">
+                <svg class="task-progress-circle" width="150" height="150">
+                    <circle cx="75" cy="75" r="70" stroke="#ddd" stroke-width="12" fill="none" />
+                    <circle id="progressCircle" cx="75" cy="75" r="70" stroke="#28a745" stroke-width="12" fill="none" stroke-dasharray="439.82" stroke-dashoffset="439.82" />
+                </svg>
+                <p id="taskProgressText" class="task-progress-text">0/0 Tasks</p>
+            </div>
+
+            <div id="taskList"></div>
+
+            <div class="add-task">
+                <input type="text" id="newTask" placeholder="Enter a new task">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
