@@ -1,57 +1,81 @@
+/* Global Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;  /* Light background color */
-    margin: 0;
+    background: linear-gradient(to right, #00bcd4, #00796b); /* Gradient Background ,  */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
+/* Login Container */
 .login-container {
-    background: linear-gradient(135deg, #00bcd4, #00796b);  /* Gradient background */
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 320px;
+    border: 1px solid #ccc;
 }
 
-h2 {
-    color: #333;
-    font-size: 28px;
+/* Header */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue header */
+    font-weight: bold;
 }
 
-.textbox {
-    margin: 20px 0;
-}
-
-.textbox input {
+/* Form Inputs */
+input {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #00bcd4;
-    border-radius: 5px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
     font-size: 16px;
 }
 
+/* Button */
 button {
     width: 100%;
     padding: 12px;
-    background-color: #00796b;  /* Green color */
-    border: none;
+    background-color: #007bff;
     color: white;
+    border: none;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #005b3a;  /* Darker green on hover */
+    background-color: #3000b3;
+}
+
+/* Error Message */
+#errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Hover effect for inputs */
+input:focus, button:focus {
+    outline: none;
+    border: 1px solid #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
 }
