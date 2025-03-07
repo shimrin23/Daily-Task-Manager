@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Daily Task Manager</title>
+    <link href="../login/style2.css" rel="stylesheet">  <!-- Path to style2.css -->
+    <script src="../login/script2.js" defer></script>   <!-- Path to script2.js -->
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Task Manager</h1>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="textbox">
+                    <input type="text" id="username" placeholder="Enter Username" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+                
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Forgot Password Link -->
+            <div class="forgot-password">
+                <a href="javascript:void(0)" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+
+            <!-- Forgot Password Form (hidden initially) -->
+            <div class="forgot-password-form d-none" id="forgotPasswordForm">
+                <h3>Reset Password</h3>
+                <form id="resetPasswordForm">
+                    <div class="textbox">
+                        <input type="email" id="resetEmail" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit">Reset Password</button>
+                </form>
+                <p class="cancel-reset"><a href="javascript:void(0)" id="cancelResetLink">Cancel</a></p>
+            </div>
+
+            <!-- Sign Up Link -->
+            <div class="sign-up">
+                <p>Don't have an account? <a href="signup.html" id="signUpLink">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

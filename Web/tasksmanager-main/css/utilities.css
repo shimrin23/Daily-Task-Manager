@@ -1,0 +1,132 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: rgb(237, 237, 237); /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full-screen height */
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+}
+
+/* Heading Styling */
+h2 {
+    color: #333; /* Darker color for the title */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: 80%; /* Slightly reduced width */
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect on the container */
+.container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Styling */
+.title {
+    margin: 20px 0 30px 0;
+    text-align: center;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 20px;
+    font-weight: 700;
+    background-color: #84DCC6;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(154, 154, 154, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4ba08b; /* Darker green */
+    transform: scale(1.05); /* Button hover effect */
+}
+
+/* Active button state */
+.btn.active-section {
+    background-color: #4ba08b;
+    color: #fff;
+}
+
+/* Alert Box Styling */
+.alert-red {
+    color: #a50000;
+    background-color: #f8d7da; /* Light red background */
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Hidden Class */
+.d-none {
+    display: none;
+}
+
+/* Paragraph Styling (error or alert message) */
+p {
+    background-color: #4ba08b; 
+    color: white;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Button without background and border (for icon buttons) */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Icon Button Hover Effect */
+button:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Full width on small screens */
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Adjust title size for small screens */
+    }
+
+    .btn {
+        padding: 8px 16px; /* Adjust button size for smaller screens */
+    }
+}

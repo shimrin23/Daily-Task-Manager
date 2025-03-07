@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <script src="https://kit.fontawesome.com/749b88acba.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Filters</h3>
+        <button class="btn" id="sidebarAllTasks">All Tasks</button>
+        <button class="btn" id="sidebarActiveTasks">Active Tasks</button>
+        <button class="btn" id="sidebarCompletedTasks">Completed Tasks</button>
+       
+
+
+        <h3>Statistics</h3>
+        <p>Total Tasks: <span id="totalTasks">0</span></p>
+        <p>Completed Tasks: <span id="completedTasksCount">0</span></p>
+        <p>Pending Tasks: <span id="pendingTasksCount">0</span></p>
+
+        <!-- Sorting buttons inside the sidebar -->
+        <h3>Sorting</h3>
+        <button class="btn" id="sortTasks">Sort by Priority</button>
+        <button class="btn" id="sortTasksByDate">Sort by Due Date</button>
+       
+        <h3>Settings</h3>
+        <button class="btn" id="themeButton">Toggle Theme</button>
+        <button class="btn" id="logoutButton">Logout</button>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="title">
+            <h2>Task Manager</h2>
+        </div>
+
+        <p class="alert d-none">All inputs must be filled</p>
+
+        <div class="inputs">
+            <input type="text" id="taskName" class="task-name-input" placeholder="Write a task">
+            <input type="date" id="taskDueDate" class="task-due-date">
+            <select id="priority" class="priority-input">
+                <option value="" disabled selected>Priority</option>
+                <option value="High Priority">High Priority</option>
+                <option value="Low Priority">Low Priority</option>
+            </select>
+            <button class="btn add-tasks-btn" id="addTask">Add</button>
+        </div>
+
+        <div class="none-inputs d-none">
+            <div class="tasks-list">
+                <table class="tasks" id="tasksListing">
+                    <tr>
+                        <th class="column">Status</th>
+                        <th class="column">Tasks</th>
+                        <th class="column">Priority</th>
+                        <th class="column">Due Date</th>
+                        <th class="column">Actions</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <button class="btn clear-btn d-none">Clear All</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
