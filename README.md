@@ -17,9 +17,15 @@ It serves as both a **desktop productivity tool** and a **learning project** com
 
 ---
 
-##  Project Structure
+## 🗂️ Project Structure
+
+Here’s just the **project structure** part (clean and ready to paste):
+
+```markdown
+## 🗂️ Project Structure
 
 ```
+
 TaskManager/
 ├── Desktop/
 │   └── TaskManager/
@@ -46,14 +52,13 @@ TaskManager/
 │   └── note.html
 │
 └── Web/tasksmanager-main/
-    ├── index.html
-    ├── assets/
-    ├── css/styles.css
-    ├── js/
-    └── login/
+├── index.html
+├── assets/
+├── css/styles.css
+├── js/
+└── login/
 
-
-
+```
 ---
 
 ## ⚙️ Prerequisites
