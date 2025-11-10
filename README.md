@@ -20,7 +20,6 @@ It serves as both a **desktop productivity tool** and a **learning project** com
 ##  Project Structure
 
 ```
-
 TaskManager/
 ├── Desktop/
 │   └── TaskManager/
@@ -47,13 +46,13 @@ TaskManager/
 │   └── note.html
 │
 └── Web/tasksmanager-main/
-├── index.html
-├── assets/
-├── css/styles.css
-├── js/
-└── login/
+    ├── index.html
+    ├── assets/
+    ├── css/styles.css
+    ├── js/
+    └── login/
 
-````
+
 
 ---
 
