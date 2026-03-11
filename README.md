@@ -1,143 +1,44 @@
+# Daily Task Manager
 
-```markdown
-#  TaskManager (WPF + Web Assets)
-
-**TaskManager** is a simple **WPF desktop application** built with **C#** for managing personal to-do tasks, accompanied by several **web demo pages** showcasing login and task management UI concepts.  
-It serves as both a **desktop productivity tool** and a **learning project** combining WPF and web technologies.
+A cross-platform productivity suite featuring a C# WPF desktop application and a responsive web-based task management interface.
 
 ---
 
-##  Features
+## Overview
+Daily Task Manager demonstrates a hybrid approach to software development, providing a robust desktop client for Windows alongside a mobile-friendly web application. The project highlights clean UI design, MVVM architecture in desktop development, and state persistence in web environments.
 
--  Add, update, and delete tasks  
--  Basic login UI (desktop & web demo)  
--  Modern WPF UI using XAML  
--  Web-based demos for login and task list screens  
--  Modular project structure (Desktop + Web)
+## Tech Stack
 
----
-
-## 🗂️ Project Structure
-
-Here’s just the **project structure** part (clean and ready to paste):
-
-```markdown
-## 🗂️ Project Structure
-
-```
-
-TaskManager/
-├── Desktop/
-│   └── TaskManager/
-│       ├── App.xaml / App.xaml.cs
-│       ├── MainWindow.xaml / MainWindow.xaml.cs
-│       ├── LoginWindow.xaml / LoginWindow.xaml.cs
-│       ├── ToDoTask.cs
-│       ├── TaskManager.csproj
-│       ├── TaskManager.sln
-│       └── bin/ & obj/ (build artifacts)
-│
-├── login/
-│   ├── index2.html
-│   ├── script2.js
-│   └── style2.css
-│
-├── main/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-│
-├── notes/
-│   ├── calander.html
-│   └── note.html
-│
-└── Web/tasksmanager-main/
-├── index.html
-├── assets/
-├── css/styles.css
-├── js/
-└── login/
-
-```
----
-
-## ⚙️ Prerequisites
-
-###  Desktop (WPF)
-- **Visual Studio 2022** or newer  
-- **.NET Framework / .NET 6+ Desktop Runtime**
-
-###  Web (Demo pages)
-- Any modern web browser (Chrome, Edge, Firefox)  
-- (Optional) Local static server such as Python HTTP server
+| Platform | Technologies |
+| :--- | :--- |
+| **Desktop (WPF)** | .NET 8.0, C# 12.0, XAML, MVVM Pattern |
+| **Web Frontend** | HTML5, CSS3, JavaScript (ES6+), LocalStorage API |
+| **Tools** | Git, Visual Studio 2022, VS Code, Font Awesome |
 
 ---
 
-##  How to Run
+## Key Features
 
-###  Desktop (WPF)
-1. Open `Desktop/TaskManager/TaskManager.sln` in **Visual Studio**  
-2. Press **F5** to build and run the project  
+### Desktop Client (WPF)
+* **Authentication:** Secure login system with credential validation.
+* **State Management:** Real-time UI updates via ObservableCollection and Data Binding.
+* **Task Operations:** Full CRUD (Create, Read, Update, Delete) functionality for daily objectives.
+* **Session Control:** Integrated logout and secure window transitions.
 
-**Alternative (CLI):**
-```bash
-cd Desktop/TaskManager
-dotnet run
-````
-
----
-
-###  Web Pages
-
-You can open any `.html` file directly in your browser:
-
-* [login/index2.html](login/index2.html)
-* [main/index.html](main/index.html)
-
-**Optional (for serving via localhost):**
-
-```bash
-cd main
-python -m http.server 8080
-```
-
-Then open [http://localhost:8080](http://localhost:8080) in your browser.
+### Web Interfaces
+* **Advanced Task Engine:** Support for priority levels (High/Low) and due date tracking.
+* **Dynamic Filtering:** View and sort tasks by status (All, Active, Completed).
+* **Analytics Dashboard:** Visual progress tracking via circular completion indicators and task counters.
+* **State Persistence:** Data retention using the Browser LocalStorage API.
+* **Responsive Design:** Mobile-first UI compatible with all modern browsers.
 
 ---
 
+## Project Structure
 
-
-## Development Notes
-
-* UI and events: `MainWindow.xaml` + `MainWindow.xaml.cs`
-* Authentication logic: `LoginWindow.xaml.cs`
-* Domain model: `ToDoTask.cs`
-* Styling: `style.css` (web), XAML styles (desktop)
-* Extend functionality by adding new UI elements or models
-
----
-
-## How to Extend
-
-* **Add new task features** → Edit `MainWindow.xaml.cs`
-* **Add new UI windows** → Create new XAML + code-behind pair
-* **Change web UI** → Modify HTML/CSS/JS under `main/` or `Web/`
-* **Integrate backend** → Connect web or desktop to an API later
-
----
-
-##  Author & Credits
-
-**Author:** [shimrin](https://github.com/shimrin23)
-**Field:** Computer Engineering
-
----
-
-##  License
-
-This project is provided for **educational and demonstration purposes**.
-Feel free to modify or extend it as needed.
-
----
-
-
+```text
+Daily-Task-Manager/
+├── Desktop/           # C# WPF Source Code (MVVM)
+├── Web/               # Advanced Web Interface (State Management)
+├── main/              # Lightweight Web Interface
+└── README.md          # Documentation
